@@ -3,9 +3,6 @@ import NotificationComponent from "./components/NotificationComponent";
 
 function App() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [isInstalled, setIsInstalled] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-
   useEffect(() => {
     const handleOnlineStatus = () => {
       setIsOnline(navigator.onLine);
@@ -13,30 +10,11 @@ function App() {
 
     window.addEventListener("online", handleOnlineStatus);
     window.addEventListener("offline", handleOnlineStatus);
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-      setIsInstalled(true);
-    }
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    });
     return () => {
       window.removeEventListener("online", handleOnlineStatus);
       window.removeEventListener("offline", handleOnlineStatus);
     };
   }, []);
-
-  const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to install prompt: ${outcome}`);
-    setDeferredPrompt(null);
-
-    if (outcome === "accepted") {
-      setIsInstalled(true);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black p-6">
@@ -57,17 +35,6 @@ function App() {
         </div>
 
         <NotificationComponent />
-
-        {!isInstalled && deferredPrompt && (
-          <div className="mt-6 text-center">
-            <button
-              onClick={handleInstallClick}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-              Install App
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
