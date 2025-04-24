@@ -12,9 +12,7 @@ This is a simple yet modern React component that allows users to enable browser 
 
 ![Screenshot from 2025-04-24 18-57-50](https://github.com/user-attachments/assets/d1fa1809-3381-4906-8625-d6046b998d33)
 ![Screenshot from 2025-04-24 18-57-25](https://github.com/user-attachments/assets/76b16a32-f7bc-4743-861b-8b294961a17b)
-![Screenshot from 2025-04-24 18-57-03](https://github.com/user-attachments/assets/b2afd537-78d7-44c7-b028-2fb4e8b7dca5)
-
-
+![Screenshot from 2025-04-24 19-02-38](https://github.com/user-attachments/assets/fd1fd90d-7584-457f-8fd9-c2b3cc8a0564)
 
 ## File structure
 
