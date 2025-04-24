@@ -8,6 +8,13 @@ This is a simple yet modern React component that allows users to enable browser 
  https://task-pwa.vercel.app/
 
 ```
+## Demo Image:
+
+![Screenshot from 2025-04-24 18-57-50](https://github.com/user-attachments/assets/d1fa1809-3381-4906-8625-d6046b998d33)
+![Screenshot from 2025-04-24 18-57-25](https://github.com/user-attachments/assets/76b16a32-f7bc-4743-861b-8b294961a17b)
+![Screenshot from 2025-04-24 18-57-03](https://github.com/user-attachments/assets/b2afd537-78d7-44c7-b028-2fb4e8b7dca5)
+
+
 
 ## File structure
 
