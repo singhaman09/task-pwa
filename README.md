@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# Push Notification Component (React + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple yet modern React component that allows users to enable browser notifications and send custom messages using the **Notification API** and **Service Workers**. It is designed as a Progressive Web App (PWA) and can be installed on mobile devices.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+ https://task-pwa.vercel.app/
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## File structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+pwa-notifications/
+├── public/
+│   └── sw.js
+├── src/
+│   ├── components/
+│   │   ├── Notification.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── index.css
+│   ├── PWABadge.css
+│   ├── PWABudge.tsx
+│   └── serviceWorkerRegistration.ts
+|
+├── index.html
+├── vite.config.ts
+├── README.md
+├── tsconfig.json
+├── vite.config.ts
+└── package.json
+
+```
+
+## Features
+
+- Request browser notification permissions.
+- Send browser push notifications.
+- PWA-ready: Works with Service Workers and can be installed on supported mobile devices.
+- TailwindCSS styled interface with modern UI/UX.
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/singhaman09/task-pwa
+   cd task-pwa
+
+   ```
+
+2. Install dependencies:
+
+```
+npm install
+```
+
+3. Run the development server:
+
+```
+npm run dev
+```
+
+## Short Report
+
+### Steps to Configure manifest.json
+
+1. Add manifest into your vite.config.ts file:
+
+```
+  manifest: {
+        name: "pwa-notifications",
+        short_name: "nothing",
+        description: "pwa-notifications",
+        theme_color: "#ffffff",
+      }
+
+```
+
+### Steps to Register Service Worker
+
+1. Put sw.js in your public/ folder
+
+2. In src/index.js or src/main.jsx, register it
+
+### Mobile Installation Steps (PWA)
+
+1. Open the app URL in Chrome (on Android).
+
+2. You’ll see a banner: “Add to Home screen”.
+
+3. Tap on it to install the app like a regular mobile app.
